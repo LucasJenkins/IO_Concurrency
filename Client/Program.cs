@@ -16,13 +16,29 @@ namespace Client
             
             var requestSerializer = new XmlSerializer(typeof(QuoteRequest));
             var responseSerializer = new XmlSerializer(typeof(QuoteResponse));
-            
+            string directoryPath = @"C:\Users\ftd-04\source\repos\dotnet-rest-controller-assignment-LucasJenkins\dotnet-io-concurrency-assignment-LucasJenkins\Files";
+
             // Example QuoteRequest containing symbols and fields client wishes to fetch data about
-            var request = new QuoteRequest
+            var request = new QuoteRequest();
+            Console.WriteLine("Please specify interval between 1-10, followed by 3 request, followed by 3 companies");
+            
+            
+            foreach (var x in args)
             {
-                Fields = new List<QuoteField> {QuoteField.High, QuoteField.Low, QuoteField.Close},
-                Symbols = new List<string> {"AAPL", "TSLA", "TWTR"}
-            };
+                switch (args)
+                {
+                    case:
+                       request.
+                    case:
+                        break;
+                    case:
+                        break;
+                    case:
+                        break
+                }
+            }
+            
+            
             
             try
             {
@@ -39,7 +55,7 @@ namespace Client
                     
                     // Receive QuoteResponse from server
                     QuoteResponse response = (QuoteResponse) responseSerializer.Deserialize(stream);
-                    Console.WriteLine(response.QuoteString);
+                    File.WriteAllText(directoryPath,response.QuoteString);                
                 }
             }
             catch (IOException e)
